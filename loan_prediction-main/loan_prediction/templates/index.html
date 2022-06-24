@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+
+  
+<style>
+  h1{
+    color:rgb(6, 252, 35);
+    text-align: center;
+    font-size: 50px;
+  }
+  form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+  }
+  body{
+    background-color: turquoise;
+  }
+  
+  form input{
+    text-align: center;
+    margin-bottom:20px ;
+    padding: 10px 40px;
+    border-radius: 10px;
+  }
+
+  form button{
+    padding:  5px 10px;
+    border-radius: 10px;
+  }
+
+  .login{
+    text-align: center;
+  }
+
+  .pred{
+    background-color: aqua;
+    padding: 10px 20px;
+    border-radius: 80px;
+  }
+
+  body{
+    background-image: url('/static/loan1.jpg');
+  }
+
+</style>
+
+</head>
+
+<body>
+ <div class="login">
+	<h1>LOAN PRICE PREDICTION</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="Gender" placeholder="Gender 1 for male and 0 for female" required="required" />
+      <input type="text" name="Married" placeholder="yes type 1 for no type  0" required="required" />
+      <input type="text" name="Dependents" placeholder="Dependents person" required="required" />
+      <input type="text" name="Education" placeholder="yes type 1 for no type 0" required="required" />
+      <input type="text" name="Self_Employed" placeholder="yes type 1 for no type 0" required="required" />
+      <input type="text" name="ApplicantIncome" placeholder="ApplicantIncome" required="required" />
+      <input type="text" name="CoapplicantIncome" placeholder="CoapplicantIncome" required="required" />
+      <input type="text" name="LoanAmount" placeholder="LoanAmount" required="required" />
+      <input type="text" name="Loan_Amount_Term" placeholder="Loan_Amount_Term" required="required" />
+      <input type="text" name="Credit_History" placeholder="for good type 1 for no 0" required="required" />
+      <input type="text" name="Property_Area" placeholder="Rural 0,Semiurban 1,Urban 2" required="required" />
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+   
+   <br>
+   <br>
+    <div class="pred">
+      {{ prediction_text }}
+    </div>
+
+ </div>
+
+
+</body>
+</html>
+
+    
